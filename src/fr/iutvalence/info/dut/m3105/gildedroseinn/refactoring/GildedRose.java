@@ -30,7 +30,6 @@ public class GildedRose
 	//updateShop
 	public static void updateShop()
 	{
-		
 		for (int i = 0; i < items.size(); i++)
 		{
 			treatDataItems(i);
@@ -43,7 +42,8 @@ public class GildedRose
 		updateQualityItem(i);
 	}
 
-	private static void updateQualityItem(int i) {
+	private static void updateQualityItem(int i) 
+	{
 		if ((!"Aged Brie".equals(items.get(i).getName()))
 				&& !"Backstage passes to a TAFKAL80ETC concert".equals(items.get(i).getName()))
 		{
@@ -86,7 +86,7 @@ public class GildedRose
 				}
 				else
 				{
-					items.get(i).setQuality(items.get(i).getQuality() - items.get(i).getQuality());
+					setQualityToZero(i);
 				}
 			}
 			
@@ -96,6 +96,10 @@ public class GildedRose
 				testQualityInf50AndIncrement(i);
 			}
 		}
+	}
+
+	private static void setQualityToZero(int i) {
+		items.get(i).setQuality(items.get(i).getQuality() - items.get(i).getQuality());
 	}
 
 	private static void updateSellInItem(int i) {
