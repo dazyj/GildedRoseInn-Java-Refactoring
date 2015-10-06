@@ -54,18 +54,12 @@ public class GildedRose
 					{
 						if (items.get(i).getSellIn() < 11)
 						{
-							if (items.get(i).getQuality() < 50)
-							{
-								items.get(i).setQuality(items.get(i).getQuality() + 1);
-							}
+							testQualityInf50AndIncrement(i);
 						}
 
 						if (items.get(i).getSellIn() < 6)
 						{
-							if (items.get(i).getQuality() < 50)
-							{
-								items.get(i).setQuality(items.get(i).getQuality() + 1);
-							}
+							testQualityInf50AndIncrement(i);
 						}
 					}
 				}
@@ -97,12 +91,16 @@ public class GildedRose
 				
 				else
 				{
-					if (items.get(i).getQuality() < 50)
-					{
-						items.get(i).setQuality(items.get(i).getQuality() + 1);
-					}
+					testQualityInf50AndIncrement(i);
 				}
 			}
+		}
+	}
+
+	private static void testQualityInf50AndIncrement(int i) {
+		if (items.get(i).getQuality() < 50)
+		{
+			items.get(i).setQuality(items.get(i).getQuality() + 1);
 		}
 	}
 
