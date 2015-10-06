@@ -30,19 +30,23 @@ public class GildedRose
 	//updateShop
 	public static void updateShop()
 	{
+		
 		for (int i = 0; i < items.size(); i++)
 		{
+			
+			
 			if ((!"Aged Brie".equals(items.get(i).getName()))
 					&& !"Backstage passes to a TAFKAL80ETC concert".equals(items.get(i).getName()))
 			{
 				if (items.get(i).getQuality() > 0)
 				{
-					if (!"Sulfuras, Hand of Ragnaros".equals(items.get(i).getName()))
-					{
-						items.get(i).setQuality(items.get(i).getQuality() - 1);
-					}
+					//We find this block 2 times.
+					//TODO new method
+					decrementQualitySulfuras(i);
 				}
 			}
+			
+			
 			else
 			{
 				if (items.get(i).getQuality() < 50)
@@ -70,11 +74,15 @@ public class GildedRose
 				}
 			}
 
+			
+			
 			if (!"Sulfuras, Hand of Ragnaros".equals(items.get(i).getName()))
 			{
 				items.get(i).setSellIn(items.get(i).getSellIn() - 1);
 			}
 
+			
+			
 			if (items.get(i).getSellIn() < 0)
 			{
 				if (!"Aged Brie".equals(items.get(i).getName()))
@@ -83,10 +91,7 @@ public class GildedRose
 					{
 						if (items.get(i).getQuality() > 0)
 						{
-							if (!"Sulfuras, Hand of Ragnaros".equals(items.get(i).getName()))
-							{
-								items.get(i).setQuality(items.get(i).getQuality() - 1);
-							}
+							decrementQualitySulfuras(i);
 						}
 					}
 					else
@@ -94,6 +99,8 @@ public class GildedRose
 						items.get(i).setQuality(items.get(i).getQuality() - items.get(i).getQuality());
 					}
 				}
+				
+				
 				else
 				{
 					if (items.get(i).getQuality() < 50)
@@ -102,6 +109,13 @@ public class GildedRose
 					}
 				}
 			}
+		}
+	}
+
+	private static void decrementQualitySulfuras(int i) {
+		if (!"Sulfuras, Hand of Ragnaros".equals(items.get(i).getName()))
+		{
+			items.get(i).setQuality(items.get(i).getQuality() - 1);
 		}
 	}
 
