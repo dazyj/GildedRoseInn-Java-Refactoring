@@ -38,12 +38,9 @@ public class GildedRose
 			if ((!"Aged Brie".equals(items.get(i).getName()))
 					&& !"Backstage passes to a TAFKAL80ETC concert".equals(items.get(i).getName()))
 			{
-				if (items.get(i).getQuality() > 0)
-				{
-					//We find this block 2 times.
-					//TODO new method
-					decrementQualitySulfuras(i);
-				}
+				//We find this block 2 times.
+				//TODO new method
+				testQualityPositiveAndDecrement(i);
 			}
 			
 			
@@ -89,10 +86,7 @@ public class GildedRose
 				{
 					if (!"Backstage passes to a TAFKAL80ETC concert".equals(items.get(i).getName()))
 					{
-						if (items.get(i).getQuality() > 0)
-						{
-							decrementQualitySulfuras(i);
-						}
+						testQualityPositiveAndDecrement(i);
 					}
 					else
 					{
@@ -112,10 +106,13 @@ public class GildedRose
 		}
 	}
 
-	private static void decrementQualitySulfuras(int i) {
-		if (!"Sulfuras, Hand of Ragnaros".equals(items.get(i).getName()))
+	private static void testQualityPositiveAndDecrement(int i) {
+		if (items.get(i).getQuality() > 0)
 		{
-			items.get(i).setQuality(items.get(i).getQuality() - 1);
+			if (!"Sulfuras, Hand of Ragnaros".equals(items.get(i).getName()))
+			{
+				items.get(i).setQuality(items.get(i).getQuality() - 1);
+			}
 		}
 	}
 
