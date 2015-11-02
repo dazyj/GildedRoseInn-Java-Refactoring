@@ -28,7 +28,7 @@ public class GildedRose
 	}**/
 	
 	//updateShop
-	public static void updateShop()
+	public static void updateShop(List<Item> items)
 	{
 		for (int i = 0; i < items.size(); i++)
 		{
