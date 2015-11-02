@@ -11,7 +11,7 @@ public class GildedRose
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args)
+	/**public static void main(String[] args)
 	{
 
 		System.out.println("OMGHAI!");
@@ -25,7 +25,7 @@ public class GildedRose
 		items.add(new Item("Conjured Mana Cake", 3, 6));
 
 		updateShop();
-	}
+	}**/
 	
 	//updateShop
 	public static void updateShop()
