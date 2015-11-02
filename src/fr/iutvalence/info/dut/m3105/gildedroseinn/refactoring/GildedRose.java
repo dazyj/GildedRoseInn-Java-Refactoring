@@ -44,6 +44,8 @@ public class GildedRose
 
 	private static void updateQualityItem(int i) 
 	{
+		items.get(i).setQuality(items.get(i).getQuality() - 1);
+		
 		if ((!"Aged Brie".equals(items.get(i).getName()))
 				&& !"Backstage passes to a TAFKAL80ETC concert".equals(items.get(i).getName()))
 		{
@@ -103,6 +105,9 @@ public class GildedRose
 	}
 
 	private static void updateSellInItem(int i) {
+		
+		items.get(i).setSellIn(items.get(i).getSellIn() - 1);
+		
 		if (!"Sulfuras, Hand of Ragnaros".equals(items.get(i).getName()))
 		{
 			items.get(i).setSellIn(items.get(i).getSellIn() - 1);
